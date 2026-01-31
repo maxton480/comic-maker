@@ -49,9 +49,20 @@
 
     <!-- Placeholder sections -->
     <section id="create-comic" class="section">
-      <h2>Create New Comic</h2>
-      <p>Form for comic name and plot will come here</p>
-      <button onclick="navigate('home')">Back to Home</button>
+  <h2>Create New Comic</h2>
+
+  <label for="comic-name">Comic Name:</label><br>
+  <input id="comic-name" type="text" placeholder="e.g. The Lost Hero" style="width:100%; padding:12px; margin:8px 0; border-radius:6px; border:1px solid #444; background:#1e1e2e; color:#fff;"/>
+
+  <label for="comic-plot">Plot Summary:</label><br>
+  <textarea id="comic-plot" placeholder="Short description of the story..." rows="6" style="width:100%; padding:12px; margin:8px 0; border-radius:6px; border:1px solid #444; background:#1e1e2e; color:#fff; resize:vertical;"></textarea>
+
+  <div style="margin-top:20px;">
+    <button onclick="saveNewComic()" style="background:#58a6ff; color:white; padding:12px 24px; border:none; border-radius:6px; cursor:pointer; margin-right:10px;">Save Comic</button>
+    <button onclick="navigate('home')" style="background:transparent; color:#58a6ff; padding:12px 24px; border:1px solid #58a6ff; border-radius:6px; cursor:pointer;">Back to Home</button>
+  </div>
+
+  <p id="save-message" style="margin-top:20px; font-weight:bold;"></p>
     </section>
 
     <section id="my-projects" class="section">

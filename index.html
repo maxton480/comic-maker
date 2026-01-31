@@ -15,12 +15,12 @@
     <!-- Home -->
     <section id="home" class="section active">
       <h1>Comic Generator</h1>
-      <p>Create comics using AI-generated characters, locations and panels.</p>
+      <p>Create comics with AI-generated characters and locations.</p>
 
       <div class="category-grid">
         <div class="category-card">
           <h2>Comics</h2>
-          <p>Manage your comic projects and episodes</p>
+          <p>Manage your comic projects</p>
           <div class="btn-group">
             <button onclick="navigate('create-comic')">Create New Comic</button>
             <button onclick="navigate('my-projects')">My Projects</button>
@@ -38,7 +38,7 @@
 
         <div class="category-card">
           <h2>Locations</h2>
-          <p>Create and manage locations & backgrounds</p>
+          <p>Create and manage locations</p>
           <div class="btn-group">
             <button onclick="navigate('add-location')">Add New Location</button>
             <button onclick="navigate('my-locations')">My Locations</button>
@@ -58,7 +58,7 @@
 
       <div class="btn-group">
         <button onclick="saveNewComic()">Save Comic</button>
-        <button onclick="navigate('home')">Back to Home</button>
+        <button onclick="navigate('home')">Back</button>
       </div>
       <p id="create-message"></p>
     </section>
@@ -67,21 +67,26 @@
     <section id="my-projects" class="section">
       <h2>My Projects</h2>
       <div id="projects-list"></div>
-      <button onclick="navigate('home')">Back to Home</button>
+      <button onclick="navigate('home')">Back</button>
     </section>
 
     <!-- Add Character -->
     <section id="add-character" class="section">
-      <h2>Add New Character</h2>
-      <label for="char-name">Character Name:</label><br>
+      <h2>Add Character</h2>
+      <label for="char-name">Name:</label><br>
       <input id="char-name" type="text" placeholder="e.g. Alex" />
 
       <label for="char-desc">Description:</label><br>
       <textarea id="char-desc" rows="4" placeholder="Age, appearance, personality..."></textarea>
 
+      <button onclick="generateCharacterImages()">Generate 4 Images</button>
+      <button onclick="regenerateCharacterImages()">Regenerate</button>
+
+      <div id="char-images-grid" class="image-grid"></div>
+
       <div class="btn-group">
-        <button onclick="saveNewCharacter()">Save Character</button>
-        <button onclick="navigate('home')">Back to Home</button>
+        <button onclick="saveNewCharacter()">Save Selected</button>
+        <button onclick="navigate('home')">Back</button>
       </div>
       <p id="char-message"></p>
     </section>
@@ -90,21 +95,26 @@
     <section id="my-characters" class="section">
       <h2>My Characters</h2>
       <div id="characters-list"></div>
-      <button onclick="navigate('home')">Back to Home</button>
+      <button onclick="navigate('home')">Back</button>
     </section>
 
     <!-- Add Location -->
     <section id="add-location" class="section">
-      <h2>Add New Location</h2>
-      <label for="loc-name">Location Name:</label><br>
+      <h2>Add Location</h2>
+      <label for="loc-name">Name:</label><br>
       <input id="loc-name" type="text" placeholder="e.g. Dark Forest" />
 
       <label for="loc-desc">Description:</label><br>
-      <textarea id="loc-desc" rows="4" placeholder="Atmosphere, features, time of day..."></textarea>
+      <textarea id="loc-desc" rows="4" placeholder="Atmosphere, features..."></textarea>
+
+      <button onclick="generateLocationImages()">Generate 4 Images</button>
+      <button onclick="regenerateLocationImages()">Regenerate</button>
+
+      <div id="loc-images-grid" class="image-grid"></div>
 
       <div class="btn-group">
-        <button onclick="saveNewLocation()">Save Location</button>
-        <button onclick="navigate('home')">Back to Home</button>
+        <button onclick="saveNewLocation()">Save Selected</button>
+        <button onclick="navigate('home')">Back</button>
       </div>
       <p id="loc-message"></p>
     </section>
@@ -113,7 +123,7 @@
     <section id="my-locations" class="section">
       <h2>My Locations</h2>
       <div id="locations-list"></div>
-      <button onclick="navigate('home')">Back to Home</button>
+      <button onclick="navigate('home')">Back</button>
     </section>
 
   </div>

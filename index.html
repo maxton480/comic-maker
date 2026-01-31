@@ -12,59 +12,78 @@
 <body>
   <div class="app-container">
 
-    <!-- Home / Landing Page -->
     <section id="home" class="section active">
       <h1>Comic Generator</h1>
-      <p>Create comics with AI-generated panels, characters, and locations.</p>
+      <p>AI से comics बनाओ – stories, characters और locations के साथ।</p>
 
       <div class="category-grid">
-        <!-- Comics Category -->
         <div class="category-card">
           <h2>Comics</h2>
-          <p>Manage your comic stories and episodes</p>
+          <p>अपने projects और episodes manage करो</p>
           <div class="btn-group">
-            <button class="primary-btn" onclick="navigate('create-comic')">Create New Comic</button>
-            <button class="secondary-btn" onclick="navigate('my-projects')">My Projects</button>
+            <button onclick="navigate('create-comic')">Create New Comic</button>
+            <button onclick="navigate('my-projects')">My Projects</button>
           </div>
         </div>
 
-        <!-- Characters Category -->
         <div class="category-card">
           <h2>Characters</h2>
-          <p>Create and manage reusable characters</p>
+          <p>Characters बनाओ और manage करो</p>
           <div class="btn-group">
-            <button class="primary-btn" onclick="navigate('add-character')">Add New Character</button>
-            <button class="secondary-btn" onclick="navigate('my-characters')">My Characters</button>
+            <button onclick="navigate('add-character')">Add New Character</button>
+            <button onclick="navigate('my-characters')">My Characters</button>
           </div>
         </div>
 
-        <!-- Places Category -->
         <div class="category-card">
-          <h2>Places</h2>
-          <p>Create and manage locations/backgrounds</p>
+          <h2>Locations</h2>
+          <p>Backgrounds और places design करो</p>
           <div class="btn-group">
-            <button class="primary-btn" onclick="navigate('add-location')">Add New Location</button>
-            <button class="secondary-btn" onclick="navigate('my-locations')">My Locations</button>
+            <button onclick="navigate('add-location')">Add New Location</button>
+            <button onclick="navigate('my-locations')">My Locations</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Placeholder sections (we'll fill them one by one) -->
-    <section id="create-comic" class="section">...</section>
-    <section id="my-projects" class="section">...</section>
-    <section id="add-character" class="section">...</section>
-    <section id="my-characters" class="section">...</section>
-    <section id="add-location" class="section">...</section>
-    <section id="my-locations" class="section">...</section>
+    <!-- Placeholder sections -->
+    <section id="create-comic" class="section">
+      <h2>Create New Comic</h2>
+      <p>यहाँ name और plot डालने का form आएगा</p>
+      <button onclick="navigate('home')">Back</button>
+    </section>
 
-    <!-- Loading Overlay -->
-    <div id="loading" class="loading hidden">
-      <div class="spinner"></div>
-      <p>Generating...</p>
-    </div>
+    <section id="my-projects" class="section">
+      <h2>My Projects</h2>
+      <p>Saved comics की list</p>
+      <button onclick="navigate('home')">Back</button>
+    </section>
+
+    <section id="add-character" class="section">
+      <h2>Add Character</h2>
+      <p>Name, description और previews</p>
+      <button onclick="navigate('home')">Back</button>
+    </section>
+
+    <section id="my-characters" class="section">
+      <h2>My Characters</h2>
+      <p>Saved characters</p>
+      <button onclick="navigate('home')">Back</button>
+    </section>
+
+    <section id="add-location" class="section">
+      <h2>Add Location</h2>
+      <p>Name, description और previews</p>
+      <button onclick="navigate('home')">Back</button>
+    </section>
+
+    <section id="my-locations" class="section">
+      <h2>My Locations</h2>
+      <p>Saved locations</p>
+      <button onclick="navigate('home')">Back</button>
+    </section>
   </div>
 
-  <script type="module" src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

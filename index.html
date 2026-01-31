@@ -12,10 +12,10 @@
 <body>
   <div class="app-container">
 
-    <!-- Home / Landing -->
+    <!-- Home -->
     <section id="home" class="section active">
       <h1>Comic Generator</h1>
-      <p>Create comics with AI: stories, characters, and locations.</p>
+      <p>Create comics using AI-generated characters, locations and panels.</p>
 
       <div class="category-grid">
         <div class="category-card">
@@ -47,56 +47,75 @@
       </div>
     </section>
 
-    <!-- Placeholder sections -->
+    <!-- Create Comic -->
     <section id="create-comic" class="section">
-  <h2>Create New Comic</h2>
+      <h2>Create New Comic</h2>
+      <label for="comic-name">Comic Name:</label><br>
+      <input id="comic-name" type="text" placeholder="e.g. The Lost Hero" />
 
-  <label for="comic-name">Comic Name:</label><br>
-  <input id="comic-name" type="text" placeholder="e.g. The Lost Hero" style="width:100%; padding:12px; margin:8px 0; border-radius:6px; border:1px solid #444; background:#1e1e2e; color:#fff;"/>
+      <label for="comic-plot">Plot Summary:</label><br>
+      <textarea id="comic-plot" rows="5" placeholder="Short description of the story..."></textarea>
 
-  <label for="comic-plot">Plot Summary:</label><br>
-  <textarea id="comic-plot" placeholder="Short description of the story..." rows="6" style="width:100%; padding:12px; margin:8px 0; border-radius:6px; border:1px solid #444; background:#1e1e2e; color:#fff; resize:vertical;"></textarea>
-
-  <div style="margin-top:20px;">
-    <button onclick="saveNewComic()" style="background:#58a6ff; color:white; padding:12px 24px; border:none; border-radius:6px; cursor:pointer; margin-right:10px;">Save Comic</button>
-    <button onclick="navigate('home')" style="background:transparent; color:#58a6ff; padding:12px 24px; border:1px solid #58a6ff; border-radius:6px; cursor:pointer;">Back to Home</button>
-  </div>
-
-  <p id="save-message" style="margin-top:20px; font-weight:bold;"></p>
+      <div class="btn-group">
+        <button onclick="saveNewComic()">Save Comic</button>
+        <button onclick="navigate('home')">Back to Home</button>
+      </div>
+      <p id="create-message"></p>
     </section>
 
+    <!-- My Projects -->
     <section id="my-projects" class="section">
-  <h2>My Projects</h2>
-  <div id="projects-container">
-    <!-- Saved comics yahan dynamically aayenge -->
-  </div>
-  <button onclick="navigate('home')">Back to Home</button>
-  <p id="no-projects-msg" style="text-align:center; margin-top:20px; color:#aaa;">No projects yet. Create one!</p>
-    </section>
-
-    <section id="add-character" class="section">
-      <h2>Add Character</h2>
-      <p>Name, description and previews</p>
+      <h2>My Projects</h2>
+      <div id="projects-list"></div>
       <button onclick="navigate('home')">Back to Home</button>
     </section>
 
+    <!-- Add Character -->
+    <section id="add-character" class="section">
+      <h2>Add New Character</h2>
+      <label for="char-name">Character Name:</label><br>
+      <input id="char-name" type="text" placeholder="e.g. Alex" />
+
+      <label for="char-desc">Description:</label><br>
+      <textarea id="char-desc" rows="4" placeholder="Age, appearance, personality..."></textarea>
+
+      <div class="btn-group">
+        <button onclick="saveNewCharacter()">Save Character</button>
+        <button onclick="navigate('home')">Back to Home</button>
+      </div>
+      <p id="char-message"></p>
+    </section>
+
+    <!-- My Characters -->
     <section id="my-characters" class="section">
       <h2>My Characters</h2>
-      <p>List of saved characters</p>
+      <div id="characters-list"></div>
       <button onclick="navigate('home')">Back to Home</button>
     </section>
 
+    <!-- Add Location -->
     <section id="add-location" class="section">
-      <h2>Add Location</h2>
-      <p>Name, description and previews</p>
-      <button onclick="navigate('home')">Back to Home</button>
+      <h2>Add New Location</h2>
+      <label for="loc-name">Location Name:</label><br>
+      <input id="loc-name" type="text" placeholder="e.g. Dark Forest" />
+
+      <label for="loc-desc">Description:</label><br>
+      <textarea id="loc-desc" rows="4" placeholder="Atmosphere, features, time of day..."></textarea>
+
+      <div class="btn-group">
+        <button onclick="saveNewLocation()">Save Location</button>
+        <button onclick="navigate('home')">Back to Home</button>
+      </div>
+      <p id="loc-message"></p>
     </section>
 
+    <!-- My Locations -->
     <section id="my-locations" class="section">
       <h2>My Locations</h2>
-      <p>List of saved locations</p>
+      <div id="locations-list"></div>
       <button onclick="navigate('home')">Back to Home</button>
     </section>
+
   </div>
 
   <script src="js/main.js"></script>

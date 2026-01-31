@@ -1,0 +1,19 @@
+{
+  "name": "hd-french",
+  "version": "1.0.0",
+  "description": "Comic story generator using Fireworks AI and Flux Schnell",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "demo": "node src/index.demo.js",
+    "web": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["comic", "story", "generator", "ai", "fireworks", "flux"],
+  "author": "User",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@fireworksai/sdk": "^1.0.0"
+  }
+}

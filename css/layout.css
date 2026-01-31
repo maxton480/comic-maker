@@ -1,4 +1,0 @@
-@media (max-width: 768px) {
-  .category-grid { grid-template-columns: 1fr; }
-  .image-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
-}

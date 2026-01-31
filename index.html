@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desi Comic Generator - Ludhiana Vibe</title>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
+  <link rel="stylesheet" href="css/layout.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Landing -->
+    <section id="landing" class="section active">
+      <h1>Desi Comic Generator</h1>
+      <p>Punjabi stories ko comic banao – Ludhiana style! 🚜💥</p>
+      <div class="btn-group">
+        <button class="neon-btn" onclick="navigate('create-comic')">Create New Comic</button>
+        <button class="neon-btn secondary" onclick="navigate('my-projects')">My Projects</button>
+      </div>
+    </section>
+
+    <!-- Create Comic -->
+    <section id="create-comic" class="section">
+      <h2>Create New Comic</h2>
+      <input id="comic-name" type="text" placeholder="Comic Name (e.g. Punjab Da Munda)"/>
+      <textarea id="comic-plot" placeholder="Plot batao (Hinglish mein bhi chalega, e.g. Ek ladka tractor chori karne ki koshish karda)"></textarea>
+      <button class="neon-btn" onclick="generateSuggestions()">Generate Suggestions</button>
+      <div id="suggestions-area" class="card-grid"></div>
+      <div class="btn-group">
+        <button class="neon-btn" onclick="saveNewComic()">Save & Start</button>
+        <button class="neon-btn secondary" onclick="navigate('landing')">Back</button>
+      </div>
+    </section>
+
+    <!-- My Projects -->
+    <section id="my-projects" class="section">
+      <h2>My Projects</h2>
+      <div id="projects-grid" class="card-grid"></div>
+      <button class="neon-btn secondary" onclick="navigate('landing')">Back to Home</button>
+    </section>
+
+    <!-- Project View -->
+    <section id="project-view" class="section">
+      <h2 id="proj-title"></h2>
+      <p id="proj-plot"></p>
+      <h3>Characters</h3>
+      <div id="char-grid" class="card-grid"></div>
+      <div class="btn-group">
+        <button class="neon-btn" onclick="navigate('add-character')">Add Character</button>
+        <button class="neon-btn" onclick="navigate('create-episode')">Create Episode</button>
+        <button class="neon-btn secondary" onclick="navigate('my-projects')">Back</button>
+      </div>
+    </section>
+
+    <!-- Add Character -->
+    <section id="add-character" class="section">
+      <h2>Add New Character</h2>
+      <input id="char-name" type="text" placeholder="Name (e.g. Jassa)"/>
+      <textarea id="char-desc" placeholder="Description (Punjabi munda, turban, Ludhiana college student, funny nature)"></textarea>
+      <button class="neon-btn" onclick="generateCharPreviews()">Generate 4 Options</button>
+      <div id="char-preview-grid" class="card-grid"></div>
+      <div class="btn-group">
+        <button class="neon-btn" onclick="saveSelectedChar()">Save Selected</button>
+        <button class="neon-btn secondary" onclick="navigate('project-view')">Back</button>
+      </div>
+    </section>
+
+    <!-- Create Episode (MVP simple) -->
+    <section id="create-episode" class="section">
+      <h2>Create Episode</h2>
+      <textarea id="episode-script" placeholder="Script likho (har line ek panel/scene)"></textarea>
+      <input id="episode-pages" type="number" min="1" value="1" placeholder="Number of Pages"/>
+      <button class="neon-btn" onclick="generateEpisodePanels()">Generate Panels</button>
+      <div id="episode-output" class="card-grid"></div>
+      <div class="btn-group">
+        <button class="neon-btn" onclick="alert('Episode saved to project! (expand later)')">Save Episode</button>
+        <button class="neon-btn secondary" onclick="navigate('project-view')">Back</button>
+      </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Generating with Flux AI... Oye hoye! 🔥</p>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

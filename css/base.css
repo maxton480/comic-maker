@@ -17,3 +17,30 @@ body {
 
 .section { display: none; padding: 2rem; background: var(--card); border-radius: 12px; border: 1px solid var(--border); }
 .section.active { display: block; }
+.item-card {
+  background: #1e1e2e;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: 500;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  background: #1e1e2e;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.btn-group {
+  margin: 24px 0;
+}

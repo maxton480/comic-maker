@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bulk WEBP Watermark Tool</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+input, button {
+    margin: 10px;
+}
+
+.preview img {
+    max-width: 250px;
+    margin: 10px;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Bulk WEBP Watermark Tool</h2>
+
+<label>Upload Images:</label><br>
+<input type="file" id="images" multiple accept="image/*"><br>
+
+<label>Upload Watermark:</label><br>
+<input type="file" id="watermark" accept="image/*"><br>
+
+<label>Watermark Opacity:</label><br>
+<input type="range" id="opacity" min="0.1" max="1" step="0.1" value="0.5"><br>
+
+<button onclick="processImages()">Apply Watermark</button>
+
+<div class="preview" id="preview"></div>
+
+<script>
+async function processImages() {
+
+const files = document.getElementById('images').files;
+const watermarkFile = document.getElementById('watermark').files[0];
+const opacity = document.getElementById('opacity').value;
+
+if (!files.length || !watermarkFile) {
+    alert("Upload images and watermark first!");
+    return;
+}
+
+const watermark = await loadImage(watermarkFile);
+document.getElementById('preview').innerHTML = "";
+
+for (let file of files) {
+
+    const img = await loadImage(file);
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.drawImage(img, 0, 0);
+
+    ctx.globalAlpha = opacity;
+
+    // watermark scale relative to image
+    let wmWidth = img.width * 0.3;
+    let wmHeight = watermark.height * (wmWidth / watermark.width);
+
+    ctx.drawImage(
+        watermark,
+        img.width - wmWidth - 20,
+        img.height - wmHeight - 20,
+        wmWidth,
+        wmHeight
+    );
+
+    // WEBP output
+    const result = canvas.toDataURL("image/webp", 0.95);
+
+    const container = document.createElement('div');
+
+    const previewImg = document.createElement('img');
+    previewImg.src = result;
+
+    const downloadBtn = document.createElement('a');
+    downloadBtn.href = result;
+    downloadBtn.download = "watermarked.webp";
+    downloadBtn.innerText = "Download";
+
+    container.appendChild(previewImg);
+    container.appendChild(document.createElement('br'));
+    container.appendChild(downloadBtn);
+
+    document.getElementById('preview').appendChild(container);
+}
+}
+
+function loadImage(file) {
+return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.src = URL.createObjectURL(file);
+});
+}
+</script>
+
+</body>
+</html>
